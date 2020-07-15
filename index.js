@@ -40,9 +40,7 @@ app.get("/subscribe", function (req, res) {
   res.status(200).json({ msg: "thanks for subscibing" });
 });
 
-app.get("/sendemail", function (req, res) {
 
-});
 schedule.scheduleJob("1 * * * * *", function () {
     const posts = db.get("posts").value();
     posts.forEach((element) => {
@@ -56,7 +54,7 @@ schedule.scheduleJob("1 * * * * *", function () {
           const mailOptions = {
             from: "rmodi2407@gmail.com",
             to: element.email,
-            subject: "Sending Email using Node.js",
+            subject: "Weather news ",
             html: html,
           };
   
@@ -70,4 +68,4 @@ schedule.scheduleJob("1 * * * * *", function () {
         });
     });
 });
-app.listen(3000, () => console.log("hello"));
+app.listen(3000, () => console.log("server is running"));
